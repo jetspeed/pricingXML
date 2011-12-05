@@ -1,0 +1,265 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		700D7C93148D4CBA00432F7F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 700D7C92148D4CBA00432F7F /* UIKit.framework */; };
+		700D7C95148D4CBA00432F7F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 700D7C94148D4CBA00432F7F /* Foundation.framework */; };
+		700D7C97148D4CBA00432F7F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 700D7C96148D4CBA00432F7F /* CoreGraphics.framework */; };
+		700D7C9D148D4CBA00432F7F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 700D7C9B148D4CBA00432F7F /* InfoPlist.strings */; };
+		700D7C9F148D4CBA00432F7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 700D7C9E148D4CBA00432F7F /* main.m */; };
+		700D7CA3148D4CBA00432F7F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 700D7CA2148D4CBA00432F7F /* AppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		700D7C8E148D4CBA00432F7F /* PricingXML.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PricingXML.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		700D7C92148D4CBA00432F7F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		700D7C94148D4CBA00432F7F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		700D7C96148D4CBA00432F7F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		700D7C9A148D4CBA00432F7F /* PricingXML-Info.plist */ = {isa = PBXFileReference; path = "PricingXML-Info.plist"; sourceTree = "<group>"; };
+		700D7C9C148D4CBA00432F7F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		700D7C9E148D4CBA00432F7F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		700D7CA0148D4CBA00432F7F /* PricingXML-Prefix.pch */ = {isa = PBXFileReference; path = "PricingXML-Prefix.pch"; sourceTree = "<group>"; };
+		700D7CA1148D4CBA00432F7F /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		700D7CA2148D4CBA00432F7F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		700D7C8B148D4CBA00432F7F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				700D7C93148D4CBA00432F7F /* UIKit.framework in Frameworks */,
+				700D7C95148D4CBA00432F7F /* Foundation.framework in Frameworks */,
+				700D7C97148D4CBA00432F7F /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		700D7C83148D4CBA00432F7F = {
+			isa = PBXGroup;
+			children = (
+				700D7C98148D4CBA00432F7F /* PricingXML */,
+				700D7C91148D4CBA00432F7F /* Frameworks */,
+				700D7C8F148D4CBA00432F7F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		700D7C8F148D4CBA00432F7F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				700D7C8E148D4CBA00432F7F /* PricingXML.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		700D7C91148D4CBA00432F7F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				700D7C92148D4CBA00432F7F /* UIKit.framework */,
+				700D7C94148D4CBA00432F7F /* Foundation.framework */,
+				700D7C96148D4CBA00432F7F /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		700D7C98148D4CBA00432F7F /* PricingXML */ = {
+			isa = PBXGroup;
+			children = (
+				700D7CA1148D4CBA00432F7F /* AppDelegate.h */,
+				700D7CA2148D4CBA00432F7F /* AppDelegate.m */,
+				700D7C99148D4CBA00432F7F /* Supporting Files */,
+			);
+			path = PricingXML;
+			sourceTree = "<group>";
+		};
+		700D7C99148D4CBA00432F7F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				700D7C9A148D4CBA00432F7F /* PricingXML-Info.plist */,
+				700D7C9B148D4CBA00432F7F /* InfoPlist.strings */,
+				700D7C9E148D4CBA00432F7F /* main.m */,
+				700D7CA0148D4CBA00432F7F /* PricingXML-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		700D7C8D148D4CBA00432F7F /* PricingXML */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 700D7CA6148D4CBA00432F7F /* Build configuration list for PBXNativeTarget "PricingXML" */;
+			buildPhases = (
+				700D7C8A148D4CBA00432F7F /* Sources */,
+				700D7C8B148D4CBA00432F7F /* Frameworks */,
+				700D7C8C148D4CBA00432F7F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PricingXML;
+			productName = PricingXML;
+			productReference = 700D7C8E148D4CBA00432F7F /* PricingXML.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		700D7C85148D4CBA00432F7F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 700D7C88148D4CBA00432F7F /* Build configuration list for PBXProject "PricingXML" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 700D7C83148D4CBA00432F7F;
+			productRefGroup = 700D7C8F148D4CBA00432F7F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				700D7C8D148D4CBA00432F7F /* PricingXML */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		700D7C8C148D4CBA00432F7F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				700D7C9D148D4CBA00432F7F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		700D7C8A148D4CBA00432F7F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				700D7C9F148D4CBA00432F7F /* main.m in Sources */,
+				700D7CA3148D4CBA00432F7F /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		700D7C9B148D4CBA00432F7F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				700D7C9C148D4CBA00432F7F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		700D7CA4148D4CBA00432F7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		700D7CA5148D4CBA00432F7F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		700D7CA7148D4CBA00432F7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PricingXML/PricingXML-Prefix.pch";
+				INFOPLIST_FILE = "PricingXML/PricingXML-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		700D7CA8148D4CBA00432F7F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PricingXML/PricingXML-Prefix.pch";
+				INFOPLIST_FILE = "PricingXML/PricingXML-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		700D7C88148D4CBA00432F7F /* Build configuration list for PBXProject "PricingXML" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				700D7CA4148D4CBA00432F7F /* Debug */,
+				700D7CA5148D4CBA00432F7F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		700D7CA6148D4CBA00432F7F /* Build configuration list for PBXNativeTarget "PricingXML" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				700D7CA7148D4CBA00432F7F /* Debug */,
+				700D7CA8148D4CBA00432F7F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 700D7C85148D4CBA00432F7F /* Project object */;
+}
