@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class RootViewController;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, NSXMLParserDelegate> {
+@interface AppDelegate : NSObject <UIApplicationDelegate, NSXMLParserDelegate> {
     UIWindow *winwindow;
     RootViewController *rootViewController;
     UINavigationController *navigationController;

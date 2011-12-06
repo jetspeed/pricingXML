@@ -23,7 +23,8 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
     [self.window addSubview:navigationController.view];
-    
+    [self.window makeKeyAndVisible];
+
     static NSString *feedURLString = @"http://10.66.204.172:3000/prices.xml";
     NSURLRequest *pricingURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:feedURLString]];
     pricingIndexConnection = [[NSURLConnection alloc] initWithRequest:pricingURLRequest delegate:self];
@@ -35,7 +36,7 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     parseQueue = [NSOperationQueue new];
-    
+
     /*
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(addEarthquakes:)

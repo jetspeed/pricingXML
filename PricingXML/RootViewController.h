@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RootViewController : UITableViewController
+@interface RootViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>{
+    NSMutableArray *computingArray;
+}
+
+@property (strong, nonatomic) NSMutableArray *computingArray;
+- (void) insertComputings:(NSArray *) computings;
 
 @end

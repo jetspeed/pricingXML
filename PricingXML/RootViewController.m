@@ -9,6 +9,7 @@
 #import "RootViewController.h"
 
 @implementation RootViewController
+@synthesize computingArray;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -27,7 +28,10 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-insertComputings:computings
+- (void) insertComputings:(NSArray *) computings{
+    [self.computingArray addObjectsFromArray:computings];
+    [self.tableView reloadData];
+}
 
 
 #pragma mark - View lifecycle
@@ -35,6 +39,8 @@ insertComputings:computings
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //self.computingArray = [NSMutableArray array ];
+    self.computingArray = [[NSMutableArray alloc ] initWithObjects:@"Nokia", nil];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -48,6 +54,7 @@ insertComputings:computings
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.computingArray = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -80,16 +87,12 @@ insertComputings:computings
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [computingArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -100,6 +103,7 @@ insertComputings:computings
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+    cell.textLabel.text = [computingArray objectAtIndex:[indexPath row]];
     
     // Configure the cell...
     

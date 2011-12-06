@@ -40,7 +40,7 @@ static NSString * const kFunctionElementName = @"function";
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
     if ([elementName isEqualToString:kEntryElementName]) {
-        NSString *computing = [[NSString alloc] init];
+        NSMutableString *computing = [[NSMutableString alloc] init];
         self.currentComputingObject = computing;
     } else if ([elementName isEqualToString:kIdElementName] ||
                [elementName isEqualToString:kNameElementName] ||

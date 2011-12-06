@@ -13,6 +13,10 @@
 		700D7C9D148D4CBA00432F7F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 700D7C9B148D4CBA00432F7F /* InfoPlist.strings */; };
 		700D7C9F148D4CBA00432F7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 700D7C9E148D4CBA00432F7F /* main.m */; };
 		700D7CA3148D4CBA00432F7F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 700D7CA2148D4CBA00432F7F /* AppDelegate.m */; };
+		700D7CAC148D51B100432F7F /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700D7CAA148D51B000432F7F /* RootViewController.m */; };
+		700D7CAD148D51B100432F7F /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 700D7CAB148D51B000432F7F /* RootViewController.xib */; };
+		70EEA5BF148D90990019907C /* ParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EEA5BE148D90990019907C /* ParseOperation.m */; };
+		70EF7875148DDF12006D3900 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70EF7874148DDF11006D3900 /* MainWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +24,18 @@
 		700D7C92148D4CBA00432F7F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		700D7C94148D4CBA00432F7F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		700D7C96148D4CBA00432F7F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		700D7C9A148D4CBA00432F7F /* PricingXML-Info.plist */ = {isa = PBXFileReference; path = "PricingXML-Info.plist"; sourceTree = "<group>"; };
+		700D7C9A148D4CBA00432F7F /* PricingXML-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PricingXML-Info.plist"; sourceTree = "<group>"; };
 		700D7C9C148D4CBA00432F7F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		700D7C9E148D4CBA00432F7F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		700D7CA0148D4CBA00432F7F /* PricingXML-Prefix.pch */ = {isa = PBXFileReference; path = "PricingXML-Prefix.pch"; sourceTree = "<group>"; };
-		700D7CA1148D4CBA00432F7F /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		700D7CA0148D4CBA00432F7F /* PricingXML-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PricingXML-Prefix.pch"; sourceTree = "<group>"; };
+		700D7CA1148D4CBA00432F7F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		700D7CA2148D4CBA00432F7F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		700D7CA9148D51B000432F7F /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		700D7CAA148D51B000432F7F /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		700D7CAB148D51B000432F7F /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		70EEA5BD148D90990019907C /* ParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseOperation.h; sourceTree = "<group>"; };
+		70EEA5BE148D90990019907C /* ParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseOperation.m; sourceTree = "<group>"; };
+		70EF7874148DDF11006D3900 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = ../MainWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +84,12 @@
 			children = (
 				700D7CA1148D4CBA00432F7F /* AppDelegate.h */,
 				700D7CA2148D4CBA00432F7F /* AppDelegate.m */,
+				70EEA5BD148D90990019907C /* ParseOperation.h */,
+				70EEA5BE148D90990019907C /* ParseOperation.m */,
+				700D7CA9148D51B000432F7F /* RootViewController.h */,
+				700D7CAA148D51B000432F7F /* RootViewController.m */,
+				700D7CAB148D51B000432F7F /* RootViewController.xib */,
+				70EF7874148DDF11006D3900 /* MainWindow.xib */,
 				700D7C99148D4CBA00432F7F /* Supporting Files */,
 			);
 			path = PricingXML;
@@ -141,6 +157,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				700D7C9D148D4CBA00432F7F /* InfoPlist.strings in Resources */,
+				700D7CAD148D51B100432F7F /* RootViewController.xib in Resources */,
+				70EF7875148DDF12006D3900 /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +171,8 @@
 			files = (
 				700D7C9F148D4CBA00432F7F /* main.m in Sources */,
 				700D7CA3148D4CBA00432F7F /* AppDelegate.m in Sources */,
+				700D7CAC148D51B100432F7F /* RootViewController.m in Sources */,
+				70EEA5BF148D90990019907C /* ParseOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +278,7 @@
 				700D7CA8148D4CBA00432F7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
