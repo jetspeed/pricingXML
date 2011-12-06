@@ -7,19 +7,137 @@
 //
 
 #import "AppDelegate.h"
+#import "RootViewController.h"
+#import "ParseOperation.h"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
+@synthesize rootViewController;
+@synthesize navigationController;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    return YES;
+@synthesize pricingIndexConnection;
+@synthesize pricingComputings;
+@synthesize parseQueue;
+
+
+- (void)applicationDidFinishLaunching:(UIApplication *)application {
+    [self.window addSubview:navigationController.view];
+    
+    static NSString *feedURLString = @"http://10.66.204.172:3000/prices.xml";
+    NSURLRequest *pricingURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:feedURLString]];
+    pricingIndexConnection = [[NSURLConnection alloc] initWithRequest:pricingURLRequest delegate:self];
+    
+    NSAssert(self.pricingIndexConnection != nil, @"Failure to create URL connection.");
+    
+    // Start the status bar network activity indicator. We'll turn it off when the connection
+    // finishes or experiences an error.
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    parseQueue = [NSOperationQueue new];
+    
+    /*
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(addEarthquakes:)
+                                                 name:kAddEarthquakesNotif
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(earthquakesError:)
+                                                 name:kEarthquakesErrorNotif
+                                               object:nil];
+     */
+    
+    
 }
+
+
+#pragma mark -
+#pragma NSURLConnection Delegate method
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    // check for HTTP status code for proxy authentication failures
+    // anything in the 200 to 299 range is considered successful,
+    // also make sure the MIMEType is correct:
+    //
+    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+    if ((([httpResponse statusCode]/100) == 2)) {
+        self.pricingComputings = [NSMutableData data];
+    } else {
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"HTTP Error", @"Error message displayed when receving a connection error.") forKey:NSLocalizedDescriptionKey];
+        NSError *error = [NSError errorWithDomain:@"HTTP" code:[httpResponse statusCode] userInfo:userInfo];
+        [self handleError:error];
+    }
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [pricingComputings appendData:data];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;   
+    if ([error code] == kCFURLErrorNotConnectedToInternet) {
+        // if we can identify the error, we can present a more precise message to the user.
+        NSDictionary *userInfo =
+        [NSDictionary dictionaryWithObject:
+         NSLocalizedString(@"No Connection Error",
+                           @"Error message displayed when not connected to the Internet.")
+                                    forKey:NSLocalizedDescriptionKey];
+        NSError *noConnectionError = [NSError errorWithDomain:NSCocoaErrorDomain
+                                                         code:kCFURLErrorNotConnectedToInternet
+                                                     userInfo:userInfo];
+        [self handleError:noConnectionError];
+    } else {
+        // otherwise handle the error generically
+        [self handleError:error];
+    }
+    self.pricingIndexConnection = nil;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    self.pricingIndexConnection = nil;
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;   
+    
+    // Spawn an NSOperation to parse the earthquake data so that the UI is not blocked while the
+    // application parses the XML data.
+    //
+    // IMPORTANT! - Don't access or affect UIKit objects on secondary threads.
+    //
+    ParseOperation *parseOperation = [[ParseOperation alloc] initWithData:self.pricingComputings];
+    [self.parseQueue addOperation:parseOperation];
+
+    self.pricingComputings = nil;
+}
+
+// Handle errors in the download by showing an alert to the user. This is a very
+// simple way of handling the error, partly because this application does not have any offline
+// functionality for the user. Most real applications should handle the error in a less obtrusive
+// way and provide offline functionality to the user.
+//
+- (void)handleError:(NSError *)error {
+    NSString *errorMessage = [error localizedDescription];
+    UIAlertView *alertView =
+    [[UIAlertView alloc] initWithTitle:
+     NSLocalizedString(@"Error Title",
+                       @"Title for alert displayed when download or parse error occurs.")
+                               message:errorMessage
+                              delegate:nil
+                     cancelButtonTitle:@"OK"
+                     otherButtonTitles:nil];
+    [alertView show];
+}
+
+
+// The NSOperation "ParseOperation" calls addEarthquakes: via NSNotification, on the main thread
+// which in turn calls this method, with batches of parsed objects.
+// The batch size is set via the kSizeOfEarthquakeBatch constant.
+//
+- (void)addComputingsToList:(NSArray *)computings {
+    
+    // insert the earthquakes into our rootViewController's data source (for KVO purposes)
+    [self.rootViewController insertComputings:computings];
+}
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
