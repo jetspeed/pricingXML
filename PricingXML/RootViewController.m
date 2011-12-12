@@ -28,10 +28,6 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void) insertComputings:(NSArray *) computings{
-    [self.computingArray addObjectsFromArray:computings];
-    [self.tableView reloadData];
-}
 
 
 #pragma mark - View lifecycle
@@ -41,6 +37,7 @@
     [super viewDidLoad];
     //self.computingArray = [NSMutableArray array ];
     self.computingArray = [[NSMutableArray alloc ] initWithObjects:@"Nokia", nil];
+    [self addObserver:self forKeyPath:@"computingArray" options:0 context:NULL];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -81,6 +78,28 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark -
+#pragma mark KVO support
+
+- (void)insertComputings:(NSArray *)computings
+{
+    // this will allow us as an observer to notified (see observeValueForKeyPath)
+    // so we can update our UITableView
+    //
+    [self willChangeValueForKey:@"computingArray"];
+    [self.computingArray addObjectsFromArray:computings];
+    [self didChangeValueForKey:@"computingArray"];
+}
+
+// listen for changes to the earthquake list coming from our app delegate.
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source

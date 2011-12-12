@@ -6,7 +6,13 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
+// NSNotification name for sending computings data back to the app delegate
+extern NSString *kAddComputingsNotif;
+
+// NSNotification userInfo key for obtaining the computings data
+extern NSString *kComputingResultsKey;
 #import <Foundation/Foundation.h>
+
 
 @interface ParseOperation : NSOperation<NSXMLParserDelegate> {
     NSData *pricingComputingData;

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<title>pricing computings</title>
+<prices>
+  <computing>
+    <name:cny_float_cost_rate/>
+  </computing>
+  <computing>
+    <name:cny_fixed_cost_rate/>
+  </computing>
+  <computing>
+    <name:cny_interest/>
+  </computing>
+  <computing>
+    <name:foreign_floatrate_interest/>
+  </computing>
+  <computing>
+    <name:compute/>
+  </computing>
+</prices>

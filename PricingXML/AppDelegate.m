@@ -12,7 +12,7 @@
 
 @implementation AppDelegate
 
-@synthesize window = _window;
+@synthesize window;
 @synthesize rootViewController;
 @synthesize navigationController;
 
@@ -21,11 +21,16 @@
 @synthesize parseQueue;
 
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {
-    [self.window addSubview:navigationController.view];
-    [self.window makeKeyAndVisible];
 
-    static NSString *feedURLString = @"http://10.66.204.172:3000/prices.xml";
+- (BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+    
+    [window addSubview:navigationController.view];
+    [window makeKeyAndVisible];
+    
+    //static NSString *feedURLString = @"http://10.52.129.199:3000/prices.xml";
+    //static NSString *feedURLString = @"http://10.66.204.172:3000/prices.xml";
+    //static NSString *feedURLString = @"http://10.34.33.194:3000/prices.xml";
+    static NSString *feedURLString = @"http://192.168.1.2:3000/prices.xml";
     NSURLRequest *pricingURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:feedURLString]];
     pricingIndexConnection = [[NSURLConnection alloc] initWithRequest:pricingURLRequest delegate:self];
     
@@ -36,19 +41,39 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     parseQueue = [NSOperationQueue new];
-
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(addComputings:)
+                                                 name:kAddComputingsNotif
+                                               object:nil];
+    
     /*
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(addEarthquakes:)
-                                                 name:kAddEarthquakesNotif
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(earthquakesError:)
-                                                 name:kEarthquakesErrorNotif
-                                               object:nil];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.rootViewController = [[RootViewController alloc] initWithStyle:UITableViewStylePlain];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    [self.window addSubview:navigationController.view];
+    
+    self.window.backgroundColor = [UIColor blueColor];
+    [self.window makeKeyAndVisible];
      */
+    return YES;
+}
+
+#pragma mark -
+#pragma KVO support
+
+- (void)addComputings:(NSNotification *)notif {
+    assert([NSThread isMainThread]);
     
+    [self addComputingsToList:[[notif userInfo] valueForKey:kComputingResultsKey ]];
+    //addComputingsToList:[[notif userInfo] valueForKey:kComputingResultsKey];
+}
+
+- (void)addComputingsToList:(NSArray *)computings {
     
+    // insert the earthquakes into our rootViewController's data source (for KVO purposes)
+    [self.rootViewController insertComputings:computings];
 }
 
 
@@ -128,16 +153,6 @@
 }
 
 
-// The NSOperation "ParseOperation" calls addEarthquakes: via NSNotification, on the main thread
-// which in turn calls this method, with batches of parsed objects.
-// The batch size is set via the kSizeOfEarthquakeBatch constant.
-//
-- (void)addComputingsToList:(NSArray *)computings {
-    
-    // insert the earthquakes into our rootViewController's data source (for KVO purposes)
-    [self.rootViewController insertComputings:computings];
-}
-
 
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -177,6 +192,20 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+
+-(void) dealloc{
+    
+    [pricingIndexConnection cancel];
+    [pricingIndexConnection release];
+    
+    [rootViewController release];
+    [navigationController release];
+    [window release];
+    [pricingComputings release];
+    [parseQueue release];
+    
+    [super dealloc];
 }
 
 @end

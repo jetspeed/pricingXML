@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GDataXMLNode.h"
+
 @class RootViewController;
 
 @interface AppDelegate : NSObject <UIApplicationDelegate, NSXMLParserDelegate> {
@@ -29,5 +31,6 @@
 @property (strong, nonatomic) NSOperationQueue *parseQueue;
 
 -(void) handleError:(NSError *) error;
+-(void)addComputingsToList:(NSArray *)computings;
 
 @end
