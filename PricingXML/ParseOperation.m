@@ -7,7 +7,6 @@
 //
 
 #import "ParseOperation.h"
-#import "GXMLParser.h"
 
 // NSNotification name for sending computings data back to the app delegate
 NSString *kAddComputingsNotif = @"AddComputingsNotif";
@@ -102,9 +101,7 @@ static NSString * const kFunctionElementName = @"function";
                             waitUntilDone:NO];
          */
         //self.parsingComputingArray = [NSMutableArray array];
-    } else if ([elementName isEqualToString:kIdElementName] ||
-               [elementName isEqualToString:kNameElementName] ||
-               [elementName isEqualToString:kFunctionElementName]) {
+    } else if ([elementName isEqualToString:kFunctionElementName] ) {
         [currentComputingObject appendString:self.parsedCharacterComputingData];
     } 
     // Stop accumulating parsed character data. We won't start again until specific elements begin.

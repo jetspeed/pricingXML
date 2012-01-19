@@ -27,10 +27,10 @@
     [window addSubview:navigationController.view];
     [window makeKeyAndVisible];
     
-    //static NSString *feedURLString = @"http://10.52.129.199:3000/prices.xml";
+    //static NSString *feedURLString = @"http://10.52.129.58:3000/prices.xml";
     //static NSString *feedURLString = @"http://10.66.204.172:3000/prices.xml";
-    //static NSString *feedURLString = @"http://10.34.33.194:3000/prices.xml";
-    static NSString *feedURLString = @"http://192.168.1.2:3000/prices.xml";
+    static NSString *feedURLString = @"http://10.34.33.194:3000/prices.xml";
+    //static NSString *feedURLString = @"http://192.168.1.2:3000/prices.xml";
     NSURLRequest *pricingURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:feedURLString]];
     pricingIndexConnection = [[NSURLConnection alloc] initWithRequest:pricingURLRequest delegate:self];
     

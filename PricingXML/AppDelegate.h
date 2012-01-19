@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GDataXMLNode.h"
 
 @class RootViewController;
 
